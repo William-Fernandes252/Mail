@@ -1,0 +1,72 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="row">
+        <h2 class="mt-2 mb-0 display-4 col-md-auto mr-auto">Mail <i class="bi bi-mailbox"></i></h2>
+        <p class="mt-2 mb-0 col-md-auto h-auto font-weight-bold">{{ request.user.email }}</p>
+    </div>
+    <hr>
+
+    <button class="btn btn-sm btn-outline-primary navigation" id="inbox" aria-label="Inbox" data-section="Inbox" data-icon="<i class='bi bi-inbox-fill'></i>">
+        <i class="bi bi-inbox-fill"></i>
+    </button>
+    <button class="btn btn-sm btn-outline-primary navigation" id="compose" aria-label="Compose" data-section="Compose" data-icon="<i class='bi bi-pen-fill'></i>">
+        <i class="bi bi-pen-fill"></i>
+    </button>
+    <button class="btn btn-sm btn-outline-primary navigation" id="sent" aria-label="Sent" data-section="Sent" data-icon="<i class='bi bi-send-fill'></i>">
+        <i class="bi bi-send-fill"></i>
+    </button>
+    <button class="btn btn-sm btn-outline-primary navigation" id="archived" aria-label="Archived" data-section="Archived" data-icon="<i class='bi bi-archive-fill'></i>">
+        <i class="bi bi-archive-fill"></i>
+    </button>
+    <a href="{% url 'logout' %}" class="btn btn-sm btn-outline-primary navigation" aria-label="Log out" data-section="Log Out" data-icon="<i class='bi bi-box-arrow-right'></i>">
+        <i class="bi bi-box-arrow-right"></i>
+    </a>
+
+    <hr>
+
+    <div id="actions-view" class="view">
+        <button class="btn btn-sm btn-secondary mb-1 mr-1 email-action" id="archive" aria-label="Archive/Unarchive button">
+            <!--Arquive-->
+        </button>
+        <button class="btn btn-sm btn-danger mb-1 mr-1 email-action" id="delete" aria-label="Delete button">
+            Delete <i class="bi bi-trash-fill"></i>
+        </button>
+    </div>
+
+    <div id="emails-view" class="view">
+    </div>
+
+    <div id="compose-view" class="view">
+        <h3>New Email</h3>
+        <form id="compose-form">
+            <div class="form-group">
+                From: <input disabled class="form-control" value="{{ request.user.email }}">
+            </div>
+            <div class="form-group">
+                To: <input id="compose-recipients" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="compose-subject" placeholder="Subject">
+            </div>
+            <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
+            <input type="submit" class="btn btn-primary my-2"/>
+        </form>
+    </div>
+
+    <div id="email-view" class="view">
+        <button id="reply-btn" class="btn btn-sm btn-success mr-1 mb-2">
+            Reply <i class="bi bi-reply-fill"></i>
+        </button>
+        <button id="archive-btn" class="btn btn-sm btn-secondary mr-1 mb-2">
+        </button>
+        <button id="delete-btn" class="btn btn-sm btn-danger mr-1 mb-2">
+            Delete <i class="bi bi-trash-fill"></i>
+        </button>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'mail/inbox.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,2 @@
+Arquive, unarchive or delete multiple emails with a checkbox selector.
+Custom styling.
