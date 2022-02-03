@@ -22,9 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		};
 	});
 
-	// Set buttons to arquive and delete emails
+	// Set buttons to arquive, delete and select emails
 	document.querySelector('#archive').addEventListener('click', () => manage_selected(false));
 	document.querySelector('#delete').addEventListener('click', () => manage_selected(true));
+	document.querySelector('#check-all').addEventListener('click', () => select_all(true));
+	document.querySelector('#uncheck-all').addEventListener('click', () => select_all(false));
 
 	// Action buttons are disabled by default
 	document.querySelectorAll('.email-action').forEach(button => {
@@ -319,5 +321,11 @@ function manage_selected(del) {
 		if (checkbox.checked) {
 			manage_email(parseInt(checkbox.value), document.querySelector('#archive').innerHTML.charAt(0) === 'A', del);
 		}
+	});
+}
+
+function select_all(activate) {
+	document.querySelectorAll('.email-check').forEach(checkbox => {
+		checkbox.checked = activate;
 	});
 }

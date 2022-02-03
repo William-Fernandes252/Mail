@@ -27,12 +27,15 @@
     <hr>
 
     <div id="actions-view" class="view">
-        <button class="btn btn-sm btn-secondary mb-1 mr-1 email-action" id="archive" aria-label="Archive/Unarchive button">
-            <!--Arquive-->
-        </button>
-        <button class="btn btn-sm btn-danger mb-1 mr-1 email-action" id="delete" aria-label="Delete button">
-            Delete <i class="bi bi-trash-fill"></i>
-        </button>
+        <button type="button" class="btn btn-sm btn-secondary mb-1 mr-1 email-action" id="archive" aria-label="Archive/Unarchive button"><!--Arquive--></button>
+        <button type="button" class="btn btn-sm btn-danger mb-1 mr-1 email-action" id="delete" aria-label="Delete button">Delete <i class="bi bi-trash-fill"></i></button>
+        <div class="btn-group mb-1">
+            <button type="button" class="btn btn-primary btn-sm dropdown-toggle email-action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="bi bi-check2-square"></i> </button>
+            <div class="dropdown-menu">
+                <button id="check-all" class="dropdown-item">Check All</button>
+                <button id="uncheck-all" class="dropdown-item">Uncheck All</button>
+            </div>
+        </div>
     </div>
 
     <div id="emails-view" class="view">
