@@ -325,6 +325,7 @@ function manage_selected(del) {
 }
 
 function select_all(activate) {
+	// Check or uncheck all the email checkboxes
 	document.querySelectorAll('.email-check').forEach(checkbox => {
 		checkbox.checked = activate;
 	});

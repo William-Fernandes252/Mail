@@ -1,4 +1,5 @@
 import json
+import time
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
@@ -100,6 +101,10 @@ def mailbox(request, mailbox):
     if end >= len(emails):
         end = len(emails) - 1
     emails = emails[start:end+1]
+    
+    # Artificially delay responses
+    time.sleep(1)
+    
     return JsonResponse([email.serialize() for email in emails], safe=False)
 
 
