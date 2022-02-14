@@ -2,7 +2,7 @@ from mail.models import *
 import random
 import string
 
-# Generates emails fpr test custom features
+# Generates emails for test custom features
 def generateRandomEmails(n):
     user = User.objects.get(username='william@example.com')
     sender = User.objects.get(username='service@example.com')
