@@ -26,7 +26,7 @@ In order to install and run it, follow the steps given bellow.
 
 ## Installing and running
 - Clone this repository with `https://github.com/William-Fernandes252/Mail.git`;
-- Inside of `/Auctions` run `python manage.py runserver`;
+- Inside of `/Mail` run `python manage.py runserver`;
 - Finally, go to [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
 
 ## Project snapshot
